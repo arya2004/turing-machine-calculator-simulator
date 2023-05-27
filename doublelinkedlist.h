@@ -192,11 +192,11 @@ DoubleLinkedList dropLinkedList(DoubleLinkedList doublelinkedlist){
 
 void displayDoubleLinkekdList(DoubleLinkedList doublelinkedlist){
     Node* temp = doublelinkedlist.head;
-        printf("\nHEAD");
+        printf("\n");
     for (int i = 0; i < doublelinkedlist.size; i++)
     {
-        printf("<->%i", temp->data);
+        printf("%i", temp->data);
         temp = temp->next;
     }
-    printf("<->TAIL");
+   
 }

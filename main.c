@@ -8,7 +8,12 @@
 #include<stdbool.h>
 
 #include "doublelinkedlist.h"
+#include <time.h>
 
+void waitFor (unsigned int secs) {
+    unsigned int retTime = time(0) + secs;   // Get finishing time.
+    while (time(0) < retTime);               // Loop until it arrives.
+}
 DoubleLinkedList t(int c[])
 {   DoubleLinkedList d = newDoubleLinkedList(d,-1);
     for (int i = 0; i < 10; i++)
@@ -69,6 +74,8 @@ int main()
             pointer->data = 1;
             s = s->self;
             pointer = pointer->next;
+                waitFor(1);
+    displayDoubleLinkekdList(tape);
         }
         // 0/0,R   0->0
        else if (s->state == 0 && pointer->data == 0)
@@ -76,6 +83,8 @@ int main()
             pointer->data = 0;
             s = s->self;
             pointer = pointer->next;
+                waitFor(1);
+    displayDoubleLinkekdList(tape);
         }
         // b/b,l  0->1
         else if (s->state == 0 && pointer->data == -1)
@@ -83,6 +92,8 @@ int main()
             pointer->data = -1;
             s = s->next;
             pointer = pointer->previous;
+                waitFor(1);
+    displayDoubleLinkekdList(tape);
         }
         // 1/0,L  1->1
      else   if (s->state == 1 && pointer->data == 1)
@@ -90,6 +101,8 @@ int main()
             pointer->data = 0;
             s = s->self;
             pointer = pointer->previous;
+                waitFor(1);
+    displayDoubleLinkekdList(tape);
         }
         // b/1,n   1->2
       else  if (s->state == 1 && pointer->data == -1)
@@ -97,6 +110,8 @@ int main()
             pointer->data = 1;
             s = s->next;
            // pointer = pointer->next;
+               waitFor(1);
+    displayDoubleLinkekdList(tape);
         }
         // 0/1,n  1->2
      else   if (s->state == 1 && pointer->data == 0)
@@ -104,6 +119,8 @@ int main()
             pointer->data = 1;
             s = s->next;
             //pointer = pointer->next;
+                waitFor(1);
+    displayDoubleLinkekdList(tape);
         }
         
     }
@@ -115,7 +132,8 @@ int main()
         printf("%i",ptr2->data );
         ptr2 = ptr2->next;
     }
-    
+    waitFor(1);
+    displayDoubleLinkekdList(tape);
 
     return 0;
 }
