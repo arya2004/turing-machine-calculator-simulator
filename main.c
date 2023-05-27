@@ -52,7 +52,7 @@ int main()
       ss->next->next->state = 2;
       ss->next->next->next = NULL;
 
-    int a[10] = {0,1,0,0,1,1,1,1,1,0};
+    int a[10] = {0,1,0,0,1,1,1,1,1,1};
     DoubleLinkedList tape = t(a);
     Node* pointer = tape.head;
     State* s = ss;
@@ -73,8 +73,8 @@ int main()
         {                            waitFor(1);
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
-                            waitFor(1);
-    displayDoubleLinkekdList1(tape, pointer);
+                          //  waitFor(1);
+  //  displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
             pointer = pointer->next;
 
@@ -86,8 +86,8 @@ int main()
         {                            waitFor(1);
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 0;
-                            waitFor(1);
-    displayDoubleLinkekdList1(tape, pointer);
+                           // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
             pointer = pointer->next;
 
@@ -97,8 +97,8 @@ int main()
         {                            waitFor(1);
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = -1;
-                            waitFor(1);
-    displayDoubleLinkekdList1(tape, pointer);
+                           // waitFor(1);
+   // displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
             pointer = pointer->previous;
 
