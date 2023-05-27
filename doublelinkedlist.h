@@ -190,11 +190,35 @@ DoubleLinkedList dropLinkedList(DoubleLinkedList doublelinkedlist){
 }
 
 
-void displayDoubleLinkekdList(DoubleLinkedList doublelinkedlist){
+void displayDoubleLinkekdList(DoubleLinkedList doublelinkedlist, Node* pp){
     Node* temp = doublelinkedlist.head;
         printf("\n");
     for (int i = 0; i < doublelinkedlist.size; i++)
     {
+        if (temp == pp)
+        {
+            printf("\033[0;31m%i\033[0m", temp->data);
+            i++; //Set the text to the color red
+            temp = temp->next;
+        }
+        
+        printf("%i", temp->data);
+        temp = temp->next;
+    }
+   
+}
+void displayDoubleLinkekdList1(DoubleLinkedList doublelinkedlist, Node* pp){
+    Node* temp = doublelinkedlist.head;
+        printf("\n");
+    for (int i = 0; i < doublelinkedlist.size; i++)
+    {
+        if (temp == pp)
+        {
+            printf("\033[0;32m%i\033[0m", temp->data);
+            i++; //Set the text to the color red
+            temp = temp->next;
+        }
+        
         printf("%i", temp->data);
         temp = temp->next;
     }

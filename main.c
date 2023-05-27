@@ -52,7 +52,7 @@ int main()
       ss->next->next->state = 2;
       ss->next->next->next = NULL;
 
-    int a[10] = {0,1,0,0,1,1,1,1,1,1};
+    int a[10] = {0,1,0,0,1,1,1,1,1,0};
     DoubleLinkedList tape = t(a);
     Node* pointer = tape.head;
     State* s = ss;
@@ -70,70 +70,84 @@ int main()
     while (s->state != 2)
     {   // 1/1,R   0->0
         if (s->state == 0 && pointer->data == 1)
-        {
+        {                            waitFor(1);
+    displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
+                            waitFor(1);
+    displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
             pointer = pointer->next;
-                waitFor(1);
-    displayDoubleLinkekdList(tape);
+
+
+    
         }
         // 0/0,R   0->0
        else if (s->state == 0 && pointer->data == 0)
-        {
+        {                            waitFor(1);
+    displayDoubleLinkekdList(tape, pointer);
             pointer->data = 0;
+                            waitFor(1);
+    displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
             pointer = pointer->next;
-                waitFor(1);
-    displayDoubleLinkekdList(tape);
+
         }
         // b/b,l  0->1
         else if (s->state == 0 && pointer->data == -1)
-        {
+        {                            waitFor(1);
+    displayDoubleLinkekdList(tape, pointer);
             pointer->data = -1;
+                            waitFor(1);
+    displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
             pointer = pointer->previous;
-                waitFor(1);
-    displayDoubleLinkekdList(tape);
+
         }
         // 1/0,L  1->1
      else   if (s->state == 1 && pointer->data == 1)
-        {
+        {                            waitFor(1);
+    displayDoubleLinkekdList(tape, pointer);
             pointer->data = 0;
+                            waitFor(1);
+    displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
             pointer = pointer->previous;
-                waitFor(1);
-    displayDoubleLinkekdList(tape);
+
         }
         // b/1,n   1->2
       else  if (s->state == 1 && pointer->data == -1)
-        {
+        {                            waitFor(1);
+    displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
+                           waitFor(1);
+    displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
            // pointer = pointer->next;
-               waitFor(1);
-    displayDoubleLinkekdList(tape);
+
         }
         // 0/1,n  1->2
      else   if (s->state == 1 && pointer->data == 0)
-        {
+        {                            waitFor(1);
+    displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
+                            waitFor(1);
+    displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
             //pointer = pointer->next;
-                waitFor(1);
-    displayDoubleLinkekdList(tape);
+
         }
         
     }
     
-     Node* ptr2= tape.head;
-     printf("\n");
-    for (int i = 0; i < 30; i++)
-    {
-        printf("%i",ptr2->data );
-        ptr2 = ptr2->next;
-    }
-    waitFor(1);
-    displayDoubleLinkekdList(tape);
+    //  Node* ptr2= tape.head;
+    //  printf("\n");
+    // for (int i = 0; i < 30; i++)
+    // {
+    //     printf("%i",ptr2->data );
+    //     ptr2 = ptr2->next;
+    // }
+    // waitFor(1);
+    // displayDoubleLinkekdList(tape, pointer);
 
     return 0;
 }
