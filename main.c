@@ -9,7 +9,7 @@
 
 #include "doublelinkedlist.h"
 #include <time.h>
-
+#define clrscr() printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
     unsigned int retTime = time(0) + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
@@ -52,7 +52,7 @@ int main()
       ss->next->next->state = 2;
       ss->next->next->next = NULL;
 
-    int a[10] = {1,1,1,1,1,1,1,1,1,1};
+    int a[10] = {1,1,1,0,1,1,1,1,1,1};
     DoubleLinkedList tape = t(a);
     Node* pointer = tape.head;
     State* s = ss;
@@ -70,7 +70,9 @@ int main()
     while (s->state != 2)
     {   // 1/1,R   0->0
         if (s->state == 0 && pointer->data == 1)
-        {                            waitFor(1);
+        {                      
+                  waitFor(1);
+                  clrscr();
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
                           //  waitFor(1);
@@ -84,6 +86,7 @@ int main()
         // 0/0,R   0->0
        else if (s->state == 0 && pointer->data == 0)
         {                            waitFor(1);
+        clrscr();
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 0;
                            // waitFor(1);
@@ -95,6 +98,7 @@ int main()
         // b/b,l  0->1
         else if (s->state == 0 && pointer->data == -1)
         {                            waitFor(1);
+        clrscr();
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = -1;
                            // waitFor(1);
@@ -106,9 +110,11 @@ int main()
         // 1/0,L  1->1
      else   if (s->state == 1 && pointer->data == 1)
         {                            waitFor(1);
+        clrscr();
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 0;
                             waitFor(1);
+                            clrscr();
     displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
             pointer = pointer->previous;
@@ -117,9 +123,11 @@ int main()
         // b/1,n   1->2
       else  if (s->state == 1 && pointer->data == -1)
         {                            waitFor(1);
+        clrscr();
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
                            waitFor(1);
+                           clrscr();
     displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
            // pointer = pointer->next;
@@ -128,9 +136,11 @@ int main()
         // 0/1,n  1->2
      else   if (s->state == 1 && pointer->data == 0)
         {                            waitFor(1);
+        clrscr();
     displayDoubleLinkekdList(tape, pointer);
             pointer->data = 1;
                             waitFor(1);
+                            clrscr();
     displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
             //pointer = pointer->next;
