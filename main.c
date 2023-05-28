@@ -52,7 +52,7 @@ int main()
       ss->next->next->state = 2;
       ss->next->next->next = NULL;
 
-    int a[10] = {0,1,0,0,1,1,1,1,1,1};
+    int a[10] = {1,1,1,1,1,1,1,1,1,1};
     DoubleLinkedList tape = t(a);
     Node* pointer = tape.head;
     State* s = ss;
