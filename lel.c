@@ -18,7 +18,7 @@ DoubleLinkedList t(char c[])
 {   
     int l = 20;
     DoubleLinkedList d = newDoubleLinkedList(d,'-');
-    for (int ii = 0; ii < 10; ii++)
+    for (int ii = 0; ii < 30; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
@@ -27,7 +27,7 @@ for (int i = 0; i<10; i++)
 {
     d = insertEndDoubleLinkedList(d, c[i]);
 }
-    for (int ii = 0; ii < 10; ii++)
+    for (int ii = 0; ii < 20; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
