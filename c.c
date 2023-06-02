@@ -10,9 +10,10 @@
 
 #include <time.h>
 //#include"subtraction.h"
-#include "multiplication.h"
+//#include "multiplication.h"
+#include "division.h"
 int main()
 {
-    multiplication();
+    division();
     return 0;
 }
