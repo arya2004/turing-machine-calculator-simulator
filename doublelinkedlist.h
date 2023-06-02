@@ -5,14 +5,13 @@ PLEASE REFER TO ABOVE LINK FOR VERSATILE DOUBLY LINKEDLIST CODE
 THIS ONE WILL BE TAILORED MADE FOR THE PROJECT, SO AVOID DIRECTLY COPYING THIS ONE
 
 */
-
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
 #include <math.h>
 
 typedef struct node {
-    int data;
+    char data;
     struct node* next;
     struct node* previous;
 }Node;
@@ -25,7 +24,7 @@ typedef struct {
 
 DoubleLinkedList dropLinkedList(DoubleLinkedList);
 
-DoubleLinkedList newDoubleLinkedList(DoubleLinkedList doublelinkedlist, int data){
+DoubleLinkedList newDoubleLinkedList(DoubleLinkedList doublelinkedlist, char data){
     doublelinkedlist.size = 1;
     doublelinkedlist.head = (Node*) malloc( sizeof(Node));
     doublelinkedlist.head->data = data;
@@ -40,15 +39,15 @@ int sizeDoubleLinkedList(DoubleLinkedList doublelinkedlist){
     return doublelinkedlist.size;
 }
 
-int headDoubleLinkedList(DoubleLinkedList doublelinkedlist){
+char headDoubleLinkedList(DoubleLinkedList doublelinkedlist){
     return doublelinkedlist.head->data;
 }
 
-int tailDoubleLinkedList(DoubleLinkedList doublelinkedlist){
+char tailDoubleLinkedList(DoubleLinkedList doublelinkedlist){
     return doublelinkedlist.tail->data;
 }
 
-DoubleLinkedList insertEndDoubleLinkedList(DoubleLinkedList doublelinkedlist, int data){
+DoubleLinkedList insertEndDoubleLinkedList(DoubleLinkedList doublelinkedlist, char data){
     doublelinkedlist.tail->next = (Node*) malloc(sizeof(Node));
     doublelinkedlist.tail->next->data = data;
     doublelinkedlist.tail->next->previous = doublelinkedlist.tail;
@@ -58,7 +57,7 @@ DoubleLinkedList insertEndDoubleLinkedList(DoubleLinkedList doublelinkedlist, in
     return doublelinkedlist;
 }
 
-DoubleLinkedList insertBeginningDoubleLinkedList(DoubleLinkedList doublelinkedlist, int data){
+DoubleLinkedList insertBeginningDoubleLinkedList(DoubleLinkedList doublelinkedlist, char data){
     doublelinkedlist.head->previous = (Node*)malloc(sizeof(Node));
     doublelinkedlist.size = doublelinkedlist.size + 1;
     doublelinkedlist.head->previous->data = data;
@@ -68,7 +67,7 @@ DoubleLinkedList insertBeginningDoubleLinkedList(DoubleLinkedList doublelinkedli
     return doublelinkedlist;
 }
 
-DoubleLinkedList insertAnyDoubleLinkedList(DoubleLinkedList doublelinkedlist, int data, int position){
+DoubleLinkedList insertAnyDoubleLinkedList(DoubleLinkedList doublelinkedlist, char data, int position){
     if (position < 1 || position > doublelinkedlist.size + 1)
     {
         printf("\nposition out of bound in insertAnyDoubleLinkedList");
@@ -125,12 +124,12 @@ void displayDoubleLinkekdList(DoubleLinkedList doublelinkedlist, Node* pp){
     {
         if (temp == pp)
         {
-            printf("\033[0;31m%i\033[0m", temp->data);
+            printf("\033[0;31m%c\033[0m", temp->data);
             i++; //Set the text to the color red
             temp = temp->next;
         }
         
-        printf("%i", temp->data);
+        printf("%c", temp->data);
         temp = temp->next;
     }
    
@@ -142,12 +141,12 @@ void displayDoubleLinkekdList1(DoubleLinkedList doublelinkedlist, Node* pp){
     {
         if (temp == pp)
         {
-            printf("\033[0;32m%i\033[0m", temp->data);
+            printf("\033[0;32m%c\033[0m", temp->data);
             i++; //Set the text to the color red
             temp = temp->next;
         }
         
-        printf("%i", temp->data);
+        printf("%c", temp->data);
         temp = temp->next;
     }
    

@@ -18,14 +18,18 @@ DoubleLinkedList t(char c[])
 {   
     int l = 20;
     DoubleLinkedList d = newDoubleLinkedList(d,'-');
-    for (int ii = 0; ii < l; ii++)
+    for (int ii = 0; ii < 10; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
 
-for (int i = 0; c[i]  != '\0'; i++)
+for (int i = 0; i<10; i++)
 {
-    d = insertAnyDoubleLinkedList(d,c[i], l/2);
+    d = insertEndDoubleLinkedList(d, c[i]);
+}
+    for (int ii = 0; ii < 10; ii++)
+{
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
     return d;
@@ -38,7 +42,11 @@ typedef struct state{
 }State;
 
 int main()
+
 {
+    
+    
+
     State* ss = (State*)malloc(sizeof(State));
     ss->self = ss;
     ss->state = 0;
@@ -52,18 +60,18 @@ int main()
       ss->next->next->next = NULL;
 
     //int a[10] = {1,1,1,0,1,1,1,1,1,1};
-    //char a[10] = "1110111111";
-    char a[10] = {'1','0','1','0','1','0','1','0','1','0'};
+    char a[10] = "1110111111";
+    //char a[10] = {'1','0','1','0','1','0','1','0','1','0'};
     DoubleLinkedList tape = t(a);
     Node* pointer = tape.head;
     State* s = ss;
     Node* ptr = tape.head;
     printf("\n");
-    // for (int i = 0; i < 30; i++)
-    // {
-    //     printf("%c",ptr->data );
-    //     ptr = ptr->next;
-    // }
+    for (int i = 0; i < 30; i++)
+    {
+        printf("%c",ptr->data );
+        ptr = ptr->next;
+    }
     while (pointer->data== '-' )
     {
         pointer = pointer->next;
@@ -97,7 +105,7 @@ int main()
 
         }
         // b/b,l  0->1
-        else if (s->state == 0 && pointer->data == -'-')
+        else if (s->state == 0 && pointer->data == '-')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
@@ -149,16 +157,16 @@ int main()
         }
         
     }
-    
+  
     //  Node* ptr2= tape.head;
     //  printf("\n");
     // for (int i = 0; i < 30; i++)
     // {
-    //     printf("%i",ptr2->data );
+    //     printf("%c",ptr2->data );
     //     ptr2 = ptr2->next;
     // }
     // waitFor(1);
-    // displayDoubleLinkekdList(tape, pointer);
+   // displayDoubleLinkekdList(tape, pointer);
 
     return 0;
 }
