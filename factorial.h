@@ -30,7 +30,7 @@ for (int i = 0; c[i] != '\0'; i++)
 {
     d = insertEndDoubleLinkedList(d, c[i]);
 }
-    for (int ii = 0; ii < 20; ii++)
+    for (int ii = 0; ii < 30; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
@@ -197,14 +197,706 @@ void factorial()
     twenty->first = twenty;
     twenty->second = twentyone;
     twentyone->first = twentyone;
-    twentyone->second = five;
+    twentyone->second = six;
     twentytwo->first= twentytwo;
     twentytwo->second = twentythree;
     twentythree->first = twentythree;
     twentythree->second = nine;
     twentfour->first = NULL;
 
+    
+//
 
+    char a[] = "0000";
+    DoubleLinkedList tape = createTapeFac(a);
+    Node* pointer = tape.head;
+    StateFac* s = fac;
+    Node* ptr = tape.head;
+        printf("\n");
+
+    while (pointer->data== '-' )
+    {
+        pointer = pointer->next;
+    }
+    printf("%c",pointer->data );
+    
+    //func
+
+    while (s->state != 24)
+    {
+        // 0/0,R   0->0
+        if (s->state == 0 && pointer->data == '0')
+        {                      
+                  waitFor(1);
+                  clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+                          //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+        }
+
+        // -/1,S   0->1
+       else if (s->state == 0 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            //pointer = pointer->next;
+
+        } 
+
+        
+        // 1/1,L   1->1
+       else if (s->state == 1 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        } 
+
+        // 0/0,L   1->1
+       else if (s->state == 1 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        } 
+
+                // -/-,R   1->2
+       else if (s->state == 1 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+            
+
+        } 
+                // 0/x,R   2->3
+       else if (s->state == 2 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        } 
+
+        // 1/1,R   3->3
+       else if (s->state == 3 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        } 
+
+                // 0/0,R   3->3
+       else if (s->state == 3 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        } 
+
+            // -/0,S   3->4
+       else if (s->state == 3 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+            waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+           // pointer = pointer->next;
+
+        } 
+
+        // 0/0,L   4->4
+       else if (s->state == 4 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        } 
+
+                // 1/1,L   4->4
+       else if (s->state == 4 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        } 
+                        // x/x,R   4->2
+       else if (s->state == 4 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        } 
+
+    // 1/1,R   2->5
+       else if (s->state == 2 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        } 
+
+    // 0/0,R   5->5
+       else if (s->state == 5 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        } 
+
+            // -/1,L   5->7
+       else if (s->state == 5 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;
+
+        }
+
+                    // 1/1,L   7->7
+       else if (s->state == 7 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+                            // 0/0,L   7->7
+       else if (s->state == 7 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+         // X/0,L   7->7
+       else if (s->state == 7 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+        // -/-,R   7->8
+       else if (s->state == 7 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             //waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        }
+
+        // 0/-,R   8->9
+       else if (s->state == 8 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        }
+
+        // 0/X,R   9->10
+       else if (s->state == 9 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        }
+
+                // 0/0,R   10->10
+       else if (s->state == 10 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             //waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        }
+
+                        // 1/1,R   10->11
+       else if (s->state == 10 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+             //waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        }
+
+         // 0/X,R   11->12
+       else if (s->state == 11 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        }
+         // 0/0,R   12->12
+       else if (s->state == 12 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             //waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        }
+
+                 // 1/1,R   12->12
+       else if (s->state == 12 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+             //waitFor(1);
+   //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+
+        }
+
+                // -/0,S   12->13
+       else if (s->state == 12 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            //pointer = pointer->next;
+
+        }
+
+                    // 0/0,S   13->13
+       else if (s->state == 13 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+            // 1/1,S   13->13
+       else if (s->state == 13 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+                // X/X,R   13->11
+       else if (s->state == 13 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        }
+
+        // 1/1,L   11->14
+       else if (s->state == 11 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;
+
+        }
+
+                // x/0,L   14->14
+       else if (s->state == 14 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+                        // 1/1,L   14->15
+       else if (s->state == 14 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;
+
+        }
+
+
+         // 1/0,L   15->15
+       else if (s->state == 15 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+                // 0/0,L   15->15
+       else if (s->state == 15 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }
+
+
+                // x/x,r   15->9
+       else if (s->state == 15 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        }   
+
+                        // 1/1,l   9->6
+       else if (s->state == 9 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }     
+
+    
+                            // 1/1,l   6->6
+       else if (s->state == 6 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }  
+
+             // x/x,l   6->6
+       else if (s->state == 6 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }    
+
+           // 0/0,l   6->6
+       else if (s->state == 6 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+           //  waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;
+
+        }   
+
+           //-/-,r   6->16
+       else if (s->state == 6 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+           //  waitFor(1);
+   ///displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;
+
+        } 
+        // x/-,r   16->17
+       else if (s->state == 16 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+   displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;
+           
+            
+        }   
+        // x/x,r   17->19
+       else if (s->state == 17 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;  
+        } 
+
+        // x/x,r   19->19
+       else if (s->state == 19 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+        } 
+
+        // 0/0,r   19->19
+       else if (s->state == 19 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+        } 
+
+        // 1/1,r   19->20
+       else if (s->state == 19 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;  
+        } 
+
+        // x/x,r   20->20
+       else if (s->state == 20 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+        } 
+
+            // 0/0,r   20->20
+       else if (s->state == 20 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+        } 
+
+            // 1/1,l   20->21
+       else if (s->state == 20 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;  
+        } 
+
+                // x/x,l   21->21
+       else if (s->state == 21 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;  
+        } 
+
+     // 1/x,l   21->6
+       else if (s->state == 21 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;  
+        } 
+
+     // 0/x,l   21->6
+       else if (s->state == 21 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;  
+           // printf("\n%i", s->state);
+        } 
+
+    
+
+
+
+
+    }
     
 
 
