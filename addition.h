@@ -6,11 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include<stdbool.h>
-
-#include "doublelinkedlist.h"
 #include <time.h>
 
-
+#include "doublelinkedlist.h"
 #define clrscr() //printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
     unsigned int retTime = time(0);// + secs;   // Get finishing time.
@@ -39,10 +37,10 @@ for (int i = 0; c[i] != '\0'; i++)
     return d;
 }
 
-typedef struct state{
+typedef struct stateadd{
     int state;
-    struct state* self;
-    struct state* next;
+    struct stateadd* self;
+    struct stateadd* next;
 }StateAdd;
 
 

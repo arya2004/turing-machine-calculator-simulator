@@ -1,3 +1,5 @@
+
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -6,18 +8,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include<stdbool.h>
-
-#include "doublelinkedlist.h"
 #include <time.h>
+#include "doublelinkedlist.h"
 
-
-#define clrscr()// printf("\e[1;1H\e[2J")
+#define clrscr() //printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
-    unsigned int retTime = time(0) ;//+ secs;   // Get finishing time.
+    unsigned int retTime = time(0);// + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
 }
-
-
 
 DoubleLinkedList createTapeDiv(char c[])
 {   
@@ -41,15 +39,17 @@ for (int i = 0; c[i] != '\0'; i++)
 }
 
 
-typedef struct state{
+typedef struct stated{
     int state;
-    struct state* self;
-    struct state* next;
+    struct stated* self;
+    struct stated* next;
 }StateDiv;
 
 
 void division()
 {
+    
+
 
     StateDiv* div = (StateDiv*)malloc(sizeof(StateDiv));
     StateDiv* zero = div;

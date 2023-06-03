@@ -60,7 +60,7 @@ int main()
       ss->next->next->next = NULL;
 
     //int a[10] = {1,1,1,0,1,1,1,1,1,1};
-    char a[10] = "1110111111";
+    char a[] = "1110111111";
     //char a[10] = {'1','0','1','0','1','0','1','0','1','0'};
     DoubleLinkedList tape = t(a);
     Node* pointer = tape.head;

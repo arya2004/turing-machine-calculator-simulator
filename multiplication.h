@@ -1,3 +1,7 @@
+
+#ifndef MULTIPLICATION_H__
+#define MULTIPLICATION_H__
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -6,17 +10,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include<stdbool.h>
-
-#include "doublelinkedlist.h"
 #include <time.h>
+#include "doublelinkedlist.h"
 
-#define clrscr()// printf("\e[1;1H\e[2J")
+#define clrscr() //printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
-    unsigned int retTime = time(0) ;//+ secs;   // Get finishing time.
+    unsigned int retTime = time(0);// + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
 }
-
-
 DoubleLinkedList createTapeMul(char c[])
 {   
     int l = 20;
@@ -38,14 +39,15 @@ for (int i = 0; c[i] != '\0'; i++)
     return d;
 }
 
-typedef struct state{
+typedef struct statem{
     int state;
-    struct state* self;
-    struct state* next;
+    struct statem* self;
+    struct statem* next;
 }StateMul;
 
 void multiplication()
 {
+
 
     StateMul* mul = (StateMul*)malloc(sizeof(StateMul));
     StateMul* zero = mul;
@@ -414,4 +416,7 @@ displayDoubleLinkekdList1(tape, pointer);
 
     
     
+
 }
+
+#endif

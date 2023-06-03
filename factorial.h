@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -6,17 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include<stdbool.h>
-
-#include "doublelinkedlist.h"
 #include <time.h>
+#include "doublelinkedlist.h"
 
-#define clrscr()// printf("\e[1;1H\e[2J")
+#define clrscr() //printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
-    unsigned int retTime = time(0) ;//+ secs;   // Get finishing time.
+    unsigned int retTime = time(0);// + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
 }
-
-
 DoubleLinkedList createTapeFac(char c[])
 {   
     int l = 20;
@@ -207,7 +205,7 @@ void factorial()
     
 //
 
-    char a[] = "000";
+    char a[] = "0000";
     DoubleLinkedList tape = createTapeFac(a);
     Node* pointer = tape.head;
     StateFac* s = fac;
@@ -596,7 +594,7 @@ printf("\n%i", s->state);
 
         }
 
-                    // 0/0,S   13->13
+                    // 0/0,L   13->13
        else if (s->state == 13 && pointer->data == '0')
         {                            waitFor(1);
         clrscr();
@@ -609,7 +607,7 @@ printf("\n%i", s->state);
             printf("\n%i", s->state);
 
         }
-            // 1/1,S   13->13
+            // 1/1,L   13->13
        else if (s->state == 13 && pointer->data == '1')
         {                            waitFor(1);
         clrscr();

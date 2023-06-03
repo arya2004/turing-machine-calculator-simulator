@@ -1,3 +1,6 @@
+#ifndef SUBTRACTION_H__
+#define SUBTRACTION_H__
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -6,18 +9,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include<stdbool.h>
-
-#include "doublelinkedlist.h"
 #include <time.h>
 
-#define clrscr()// printf("\e[1;1H\e[2J")
+#include "doublelinkedlist.h"
+#define clrscr() //printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
-    unsigned int retTime = time(0) ;//+ secs;   // Get finishing time.
+    unsigned int retTime = time(0);// + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
 }
-
 DoubleLinkedList createTapeSub(char c[])
-{   
+{  
     int l = 20;
     DoubleLinkedList d = newDoubleLinkedList(d,'-');
     for (int ii = 0; ii < 20; ii++)
@@ -37,14 +38,22 @@ for (int i = 0; c[i] != '\0'; i++)
     return d;
 }
 
-typedef struct state{
+typedef struct statess{
     int state;
-    struct state* self;
-    struct state* next;
+    struct statess* self;
+    struct statess* next;
 }StateSub;
 
 void subtraction()
 {
+
+#include "doublelinkedlist.h"
+
+#define clrscr() //printf("\e[1;1H\e[2J")
+void waitFor (unsigned int secs) {
+    unsigned int retTime = time(0);// + secs;   // Get finishing time.
+    while (time(0) < retTime);               // Loop until it arrives.
+}
 
     StateSub* ss = (StateSub*)malloc(sizeof(StateSub));
     StateSub* createhelper = ss;
@@ -340,3 +349,5 @@ void subtraction()
     }
      displayDoubleLinkekdList1(tape, pointer);
 }
+
+#endif
