@@ -151,3 +151,21 @@ void displayDoubleLinkekdList1(DoubleLinkedList doublelinkedlist, Node* pp){
     }
    
 }
+
+
+void zeroDoubleLinkekdList(DoubleLinkedList doublelinkedlist){
+    Node* temp = doublelinkedlist.head;
+        printf("\n");
+        int pp = 0;
+    for (int i = 0; i < doublelinkedlist.size; i++)
+    {
+        if (temp->data == '0')
+        {
+            pp = pp+ 1;
+        }
+        
+        
+        temp = temp->next;
+    }
+   printf("\n%i", pp);
+}

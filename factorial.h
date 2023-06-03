@@ -10,7 +10,7 @@
 #include <time.h>
 #include "doublelinkedlist.h"
 
-#define clrscr() //printf("\e[1;1H\e[2J")
+#define clrscr() printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
     unsigned int retTime = time(0);// + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
@@ -28,7 +28,7 @@ for (int i = 0; c[i] != '\0'; i++)
 {
     d = insertEndDoubleLinkedList(d, c[i]);
 }
-    for (int ii = 0; ii < 90; ii++)
+    for (int ii = 0; ii < 500; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
@@ -205,7 +205,7 @@ void factorial()
     
 //
 
-    char a[] = "0000";
+    char a[] = "00000";
     DoubleLinkedList tape = createTapeFac(a);
     Node* pointer = tape.head;
     StateFac* s = fac;
@@ -1145,6 +1145,7 @@ printf("\n%i", s->state);
 
     }
     
-
+    zeroDoubleLinkekdList(tape);
+    
 
 }
