@@ -21,7 +21,7 @@ DoubleLinkedList createTapeFac(char c[])
 {   
     int l = 20;
     DoubleLinkedList d = newDoubleLinkedList(d,'-');
-    for (int ii = 0; ii < 20; ii++)
+    for (int ii = 0; ii < 10; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
@@ -30,7 +30,7 @@ for (int i = 0; c[i] != '\0'; i++)
 {
     d = insertEndDoubleLinkedList(d, c[i]);
 }
-    for (int ii = 0; ii < 30; ii++)
+    for (int ii = 0; ii < 50; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
@@ -207,7 +207,7 @@ void factorial()
     
 //
 
-    char a[] = "0000";
+    char a[] = "000";
     DoubleLinkedList tape = createTapeFac(a);
     Node* pointer = tape.head;
     StateFac* s = fac;
@@ -235,6 +235,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
         }
 
         // -/1,S   0->1
@@ -247,6 +248,7 @@ void factorial()
   displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             //pointer = pointer->next;
+            printf("\n%i", s->state);
 
         } 
 
@@ -261,6 +263,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         } 
 
@@ -274,6 +277,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         } 
 
@@ -287,6 +291,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
+            printf("\n%i", s->state);
             
 
         } 
@@ -300,6 +305,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         } 
 
@@ -313,6 +319,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         } 
 
@@ -326,6 +333,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         } 
 
@@ -339,7 +347,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
            // pointer = pointer->next;
-
+printf("\n%i", s->state);
         } 
 
         // 0/0,L   4->4
@@ -352,6 +360,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         } 
 
@@ -365,7 +374,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
-
+printf("\n%i", s->state);
         } 
                         // x/x,R   4->2
        else if (s->state == 4 && pointer->data == 'X')
@@ -377,6 +386,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         } 
 
@@ -389,7 +399,7 @@ void factorial()
            //  waitFor(1);
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
-            pointer = pointer->next;
+            pointer = pointer->next;printf("\n%i", s->state);
 
         } 
 
@@ -403,6 +413,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         } 
 
@@ -416,6 +427,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -429,6 +441,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -442,6 +455,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -455,6 +469,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -468,6 +483,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -481,7 +497,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
-
+printf("\n%i", s->state);
         }
 
         // 0/X,R   9->10
@@ -494,6 +510,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -507,6 +524,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -520,6 +538,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -533,7 +552,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
-
+printf("\n%i", s->state);
         }
          // 0/0,R   12->12
        else if (s->state == 12 && pointer->data == '0')
@@ -545,6 +564,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -558,6 +578,7 @@ void factorial()
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -571,6 +592,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             //pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -584,6 +606,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
             // 1/1,S   13->13
@@ -596,7 +619,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
-
+printf("\n%i", s->state);
         }
 
                 // X/X,R   13->11
@@ -609,6 +632,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
+            printf("\n%i", s->state);
 
         }
 
@@ -622,6 +646,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -635,6 +660,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -648,6 +674,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }
 
@@ -662,7 +689,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
-
+printf("\n%i", s->state);
         }
 
                 // 0/0,L   15->15
@@ -674,7 +701,7 @@ void factorial()
            //  waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
-            pointer = pointer->previous;
+            pointer = pointer->previous;printf("\n%i", s->state);
 
         }
 
@@ -689,7 +716,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
-
+printf("\n%i", s->state);
         }   
 
                         // 1/1,l   9->6
@@ -702,6 +729,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }     
 
@@ -716,6 +744,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }  
 
@@ -729,6 +758,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }    
 
@@ -742,6 +772,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;
+            printf("\n%i", s->state);
 
         }   
 
@@ -755,7 +786,7 @@ void factorial()
    ///displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->next;
-
+        printf("\n%i",s->state);
         } 
         // x/-,r   16->17
        else if (s->state == 16 && pointer->data == 'X')
@@ -767,7 +798,7 @@ void factorial()
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;
-           
+           printf("\n%i",s->state);
             
         }   
         // x/x,r   17->19
@@ -779,7 +810,8 @@ void factorial()
             // waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
-            pointer = pointer->next;  
+            pointer = pointer->next; 
+            printf("\n%i", s->state); 
         } 
 
         // x/x,r   19->19
@@ -791,7 +823,8 @@ void factorial()
             // waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
-            pointer = pointer->next;  
+            pointer = pointer->next; 
+            printf("\n%i", s->state); 
         } 
 
         // 0/0,r   19->19
@@ -803,7 +836,8 @@ void factorial()
             // waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
-            pointer = pointer->next;  
+            pointer = pointer->next; 
+            printf("\n%i", s->state); 
         } 
 
         // 1/1,r   19->20
@@ -815,7 +849,8 @@ void factorial()
             // waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
-            pointer = pointer->next;  
+            pointer = pointer->next; 
+            printf("\n%i", s->state); 
         } 
 
         // x/x,r   20->20
@@ -828,6 +863,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;  
+            printf("\n%i", s->state);
         } 
 
             // 0/0,r   20->20
@@ -840,6 +876,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->next;  
+            printf("\n%i", s->state);
         } 
 
             // 1/1,l   20->21
@@ -851,7 +888,8 @@ void factorial()
             // waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
-            pointer = pointer->previous;  
+            pointer = pointer->previous;
+            printf("\n%i", s->state);  
         } 
 
                 // x/x,l   21->21
@@ -864,6 +902,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
             pointer = pointer->previous;  
+            printf("\n%i", s->state);
         } 
 
      // 1/x,l   21->6
@@ -876,6 +915,7 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->previous;  
+            printf("\n%i", s->state);
         } 
 
      // 0/x,l   21->6
@@ -888,13 +928,222 @@ void factorial()
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
             pointer = pointer->previous;  
-           // printf("\n%i", s->state);
+            printf("\n%i", s->state);
         } 
 
-    
+         // 1/-,r   17->18
+       else if (s->state == 17 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+         // 0/-,r   17->18
+       else if (s->state == 17 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+         // 0/-,r   18->18
+       else if (s->state == 18 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+         // x/x,r   18->22
+       else if (s->state == 18 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+         // x/x,r   22->22
+       else if (s->state == 22 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = 'X';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        }
 
+             // 0/0,r   22->22
+       else if (s->state == 22 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
 
+          // 1/1,r   22->22
+       else if (s->state == 22 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
 
+          // -/1,l   22->23
+       else if (s->state == 22 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->previous;  
+            printf("\n%i", s->state);
+        } 
+
+          // 1/1,l   23->23
+       else if (s->state == 23 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '1';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;  
+            printf("\n%i", s->state);
+        } 
+          // 0/0,l   23->23
+       else if (s->state == 23 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+            // waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->previous;  
+            printf("\n%i", s->state);
+        } 
+
+          // x/0,r   23->23
+       else if (s->state == 23 && pointer->data == 'X')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+          // -/-,r   23->9
+       else if (s->state == 23 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+
+          // 1/-,r   16->25
+       else if (s->state == 16 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+
+          // 1/-,r   25->25
+       else if (s->state == 25 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+             waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+
+          // 0/0,r   25->25
+       else if (s->state == 25 && pointer->data == '0')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '0';
+          //   waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->first;
+            pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+          // -/-,s   25->halt
+       else if (s->state == 25 && pointer->data == '-')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+          //   waitFor(1);
+  //displayDoubleLinkekdList1(tape, pointer);
+            s = s->second;
+            //pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
+
+              // 1/-,s   18->halt
+       else if (s->state == 18 && pointer->data == '1')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);
+            pointer->data = '-';
+            waitFor(1);
+  displayDoubleLinkekdList1(tape, pointer);
+            s = s->third;
+            //pointer = pointer->next;  
+            printf("\n%i", s->state);
+        } 
 
     }
     
