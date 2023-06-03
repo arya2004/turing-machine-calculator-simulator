@@ -28,7 +28,7 @@ for (int i = 0; c[i] != '\0'; i++)
 {
     d = insertEndDoubleLinkedList(d, c[i]);
 }
-    for (int ii = 0; ii < 50; ii++)
+    for (int ii = 0; ii < 90; ii++)
 {
     d = insertEndDoubleLinkedList(d, '-');
 }
@@ -1071,7 +1071,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '0';
+            pointer->data = '-';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->second;

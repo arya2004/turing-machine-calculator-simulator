@@ -16,8 +16,8 @@
 //#include "addition.h"
 int main()
 {
-    //division();
-   // multiplication();
+   // division();
+    //multiplication();
    factorial();
   /// addition();
     return 0;

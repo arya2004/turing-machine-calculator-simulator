@@ -127,7 +127,7 @@ void division()
     ten->next = halt;
 //
 
-    char a[] = "1111/11";
+    char a[] = "111111111111/1111";
     DoubleLinkedList tape = createTapeDiv(a);
     Node* pointer = tape.head;
     StateDiv* s = div;

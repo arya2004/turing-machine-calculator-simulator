@@ -1,7 +1,4 @@
 
-#ifndef MULTIPLICATION_H__
-#define MULTIPLICATION_H__
-
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -120,7 +117,7 @@ void multiplication()
     
 //
 
-    char a[] = "111*111";
+    char a[] = "111111*1";
     DoubleLinkedList tape = createTapeMul(a);
     Node* pointer = tape.head;
     StateMul* s = mul;
@@ -419,4 +416,3 @@ displayDoubleLinkekdList1(tape, pointer);
 
 }
 
-#endif
