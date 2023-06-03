@@ -11,12 +11,12 @@
 #include <time.h>
 //#include"subtraction.h"
 //#include "multiplication.h"
-#include "factorial.h"
-//#include "division.h"
+//#include "factorial.h"
+#include "division.h"
 int main()
 {
-    //division();
+    division();
    // multiplication();
-   factorial();
+   //factorial();
     return 0;
 }

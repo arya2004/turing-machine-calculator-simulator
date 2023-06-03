@@ -93,8 +93,8 @@ void division()
     nine->state = 9;
 
     StateDiv* ten = (StateDiv*)malloc(sizeof(StateDiv));
-    nine->self = NULL;
-    nine->state = 10;
+    ten->self = NULL;
+    ten->state = 10;
 
     StateDiv* halt = (StateDiv*)malloc(sizeof(StateDiv));
     halt->self = NULL;
@@ -119,8 +119,10 @@ void division()
 //   
     ei->self = ei;
     ei->next = nine;
+    printf("%i",ei->next->state );
     nine->self = nine;
     nine->next = one;
+     printf("%i",nine->self->state );
     ten->self = ten;
     ten->next = halt;
 //
@@ -136,11 +138,11 @@ void division()
     {
         pointer = pointer->next;
     }
-    printf("%c",pointer->data );
+   // printf("%c",pointer->data );
 
 
 //func
-
+    ei->next = nine;
     while (s->state != -1)
     {
     
@@ -280,7 +282,7 @@ void division()
 
 
         // ///,R   5->6
-       else if (s->state == 4 && pointer->data == '/')
+       else if (s->state == 5 && pointer->data == '/')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);printf("%i", s->state);
@@ -318,18 +320,18 @@ void division()
 
         } 
 
-//             // Z/Z,R   6->6
-//        else if (s->state == 6 && pointer->data == 'Z')
-//         {                            waitFor(1);
-//         clrscr();
-//     displayDoubleLinkekdList(tape, pointer);printf("%i", s->state);
-//             pointer->data = 'Z';
-//             // waitFor(1);
-//   // displayDoubleLinkekdList1(tape, pointer);printf("%i", s->state);
-//             s = s->next;
-//             pointer = pointer->next;
+            // Z/Z,R   6->6
+       else if (s->state == 6 && pointer->data == 'Z')
+        {                            waitFor(1);
+        clrscr();
+    displayDoubleLinkekdList(tape, pointer);printf("%i", s->state);
+            pointer->data = 'Z';
+            // waitFor(1);
+  // displayDoubleLinkekdList1(tape, pointer);printf("%i", s->state);
+            s = s->self;
+            pointer = pointer->next;
 
-//         } 
+        } 
 
         // -/Z,L   6->8
        else if (s->state == 6 && pointer->data == '-')
