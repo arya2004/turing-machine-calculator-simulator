@@ -9,17 +9,22 @@
 
 
 #include <time.h>
-//#include"subtraction.h"
+#include"subtraction.h"
 //#include "multiplication.h"
-#include "factorial.h"
+//#include "factorial.h"
 //#include "division.h"
 //#include "addition.h"
 int main()
 {
-   // division();
-    //multiplication();
-   factorial();
-   //addition();
-  //subtraction();
+    //char str[] = "111111111111/111111";
+      //  char str[] = "11111+111";
+   // division(str);
+      //  char str[] = "111111*1";
+    //multiplication(str);    
+    //char aa[] = "000";
+       // char aa[] = "111111111111111111111111111-11111111111";
+   //factorial(aa);
+   //addition(str);
+  //subtraction(aa);
     return 0;
 }

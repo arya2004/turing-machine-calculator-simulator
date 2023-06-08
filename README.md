@@ -1,6 +1,9 @@
 # Turing_Machines
 Data Structures in C Course Project using Doubly Linked List and Graphs.
-##### As of now only binary increment 
+
+Addition, Subtraction, Multiplication, Division and Factorial simulation
+
+
 ## Consideration
 #### https://github.com/arya2004/dataStructures/blob/master/doublelinkedlist.h
 #### PLEASE REFER TO ABOVE LINK FOR VERSATILE DOUBLY LINKEDLIST CODE

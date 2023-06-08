@@ -19,10 +19,10 @@ void waitFor (unsigned int secs) {
 DoubleLinkedList createTapeSub(char c[])
 {  
     int l = 20;
-    DoubleLinkedList d = newDoubleLinkedList(d,' ');
+    DoubleLinkedList d = newDoubleLinkedList(d,'_');
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '_');
 }
 
 for (int i = 0; c[i] != '\0'; i++)
@@ -31,7 +31,7 @@ for (int i = 0; c[i] != '\0'; i++)
 }
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '_');
 }
 
     return d;
@@ -43,7 +43,7 @@ typedef struct statess{
     struct statess* next;
 }StateSub;
 
-void subtraction()
+void subtraction(char a[])
 {
 
     StateSub* ss = (StateSub*)malloc(sizeof(StateSub));
@@ -110,26 +110,26 @@ void subtraction()
     createhelper->next = oneptr;
 
 
-    char a[] = "111111-11";
+
     DoubleLinkedList tape = createTapeSub(a);
     Node* pointer = tape.head;
     StateSub* s = ss;
     Node* ptr = tape.head;
     printf("\n");
-    while (pointer->next->data== ' ' )
+    while (pointer->next->data== '_' )
     {
         pointer = pointer->next;
     }
-    printf("%c",pointer->data );
+
 
     //func
     while (s->state != -1)
     {   // -/-,R   0->1
-        if (s->state == 0 && pointer->data == ' ')
+        if (s->state == 0 && pointer->data == '_')
         {                      
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             s = s->next;
             pointer = pointer->next;
         }
@@ -139,7 +139,7 @@ void subtraction()
         {                           
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
@@ -180,11 +180,11 @@ void subtraction()
         }
 
         // -/-,L  3->4
-        else   if (s->state == 3 && pointer->data == ' ')
+        else   if (s->state == 3 && pointer->data == '_')
         {                          
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             s = s->next;
             pointer = pointer->previous;
 
@@ -195,7 +195,7 @@ void subtraction()
         {                           
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
@@ -208,7 +208,7 @@ void subtraction()
         {                           
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->self; //halt
@@ -248,11 +248,11 @@ void subtraction()
         }   
 
         // -/-,S  7->halt
-        else   if (s->state == 7 && pointer->data == ' ')
+        else   if (s->state == 7 && pointer->data == '_')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             s = s->self; //halt
 
         }
@@ -280,16 +280,17 @@ void subtraction()
         }    
 
         // -/-,r  8->1
-        else   if (s->state == 8 && pointer->data == ' ')
+        else   if (s->state == 8 && pointer->data == '_')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '_';
             s = s->next;
             pointer = pointer->next;
 
         }
     }
     displayDoubleLinkekdList1(tape, pointer);
+    oneDoubleLinkekdList(tape);
     tape = dropLinkedList(tape);
 }

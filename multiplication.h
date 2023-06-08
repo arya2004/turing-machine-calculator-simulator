@@ -19,10 +19,10 @@ void waitFor (unsigned int secs) {
 DoubleLinkedList createTapeMul(char c[])
 {   
     int l = 20;
-    DoubleLinkedList d = newDoubleLinkedList(d,' ');
+    DoubleLinkedList d = newDoubleLinkedList(d,'-');
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
 for (int i = 0; c[i] != '\0'; i++)
@@ -31,7 +31,7 @@ for (int i = 0; c[i] != '\0'; i++)
 }
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
     return d;
@@ -43,7 +43,7 @@ typedef struct statem{
     struct statem* next;
 }StateMul;
 
-void multiplication()
+void multiplication(char a[])
 {
 
 
@@ -118,14 +118,14 @@ void multiplication()
     
 //
 
-    char a[] = "111111*1";
+
     DoubleLinkedList tape = createTapeMul(a);
     Node* pointer = tape.head;
     StateMul* s = mul;
     Node* ptr = tape.head;
         printf("\n");
 
-    while (pointer->data== ' ' )
+    while (pointer->data== '-' )
     {
         pointer = pointer->next;
     }
@@ -138,7 +138,7 @@ void multiplication()
         {                      
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
@@ -214,7 +214,7 @@ void multiplication()
         }   
 
                 // -/Z,L   6->7
-       else if (s->state == 6 && pointer->data == ' ')
+       else if (s->state == 6 && pointer->data == '-')
         {                           
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
@@ -309,11 +309,11 @@ void multiplication()
         }   
 
                 // -/-,R   9->0
-        else if (s->state == 9 && pointer->data == ' ')
+        else if (s->state == 9 && pointer->data == '-')
         {                            
             waitFor(1);
              displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             s = s->next;
             pointer = pointer->next;
 
@@ -358,11 +358,11 @@ void multiplication()
         }   
 
                 // -/-,L  2->3
-        else if (s->state == 2 && pointer->data == ' ')
+        else if (s->state == 2 && pointer->data == '-')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             s = s->next;
             pointer = pointer->previous;
 
@@ -373,7 +373,7 @@ void multiplication()
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
@@ -383,6 +383,7 @@ void multiplication()
 
     }
     displayDoubleLinkekdList1(tape, pointer);
+    oneDoubleLinkekdList(tape);
 
     tape = dropLinkedList(tape);
 }

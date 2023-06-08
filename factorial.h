@@ -45,7 +45,7 @@ typedef struct state{
 }StateFac;
 
 
-void factorial()
+void factorial(char a[])
 {
     StateFac* fac = (StateFac*)malloc(sizeof(StateFac));
     StateFac* zero = fac;
@@ -206,7 +206,7 @@ void factorial()
     twentfour->first = NULL;
 //
 
-    char a[] = "0000";
+
     DoubleLinkedList tape = createTapeFac(a);
     Node* pointer = tape.head;
     StateFac* s = fac;

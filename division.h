@@ -20,10 +20,10 @@ void waitFor (unsigned int secs) {
 DoubleLinkedList createTapeDiv(char c[])
 {   
     int l = 20;
-    DoubleLinkedList d = newDoubleLinkedList(d,' ');
+    DoubleLinkedList d = newDoubleLinkedList(d,'-');
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
 for (int i = 0; c[i] != '\0'; i++)
@@ -32,7 +32,7 @@ for (int i = 0; c[i] != '\0'; i++)
 }
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
     return d;
@@ -46,7 +46,7 @@ typedef struct stated{
 }StateDiv;
 
 
-void division()
+void division(char a[])
 {
     
 
@@ -124,14 +124,13 @@ void division()
     ten->next = halt;
 //
 
-    char a[] = "111111111111/1111";
     DoubleLinkedList tape = createTapeDiv(a);
     Node* pointer = tape.head;
     StateDiv* s = div;
     Node* ptr = tape.head;
         printf("\n");
 
-    while (pointer->next->data== ' ' )
+    while (pointer->next->data== '-' )
     {
         pointer = pointer->next;
     }
@@ -141,11 +140,11 @@ void division()
     {
     
         // -/-,R   0->1
-        if (s->state == 0 && pointer->data == ' ')
+        if (s->state == 0 && pointer->data == '-')
         {                      
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);    
-            pointer->data = ' ';
+            pointer->data = '-';
             s = s->next;
             pointer = pointer->next;
         }
@@ -155,7 +154,7 @@ void division()
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer); 
-            pointer->data = ' ';
+            pointer->data = '-';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer); 
             s = s->next;
@@ -218,11 +217,11 @@ void division()
         } 
         
         // -/-,L   3->4
-        else if (s->state == 3 && pointer->data == ' ')
+        else if (s->state == 3 && pointer->data == '-')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             s = s->next;
             pointer = pointer->previous;
 
@@ -299,7 +298,7 @@ void division()
         } 
 
         // -/Z,L   6->8
-        else if (s->state == 6 && pointer->data == ' ')
+        else if (s->state == 6 && pointer->data == '-')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
@@ -357,11 +356,11 @@ void division()
         }
 
         // -/-,L   9->1
-        else if (s->state == 9 && pointer->data == ' ')
+        else if (s->state == 9 && pointer->data == '-')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             s = one;
             pointer = pointer->next;
 
@@ -372,7 +371,7 @@ void division()
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
@@ -398,7 +397,7 @@ void division()
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->self;
@@ -407,16 +406,16 @@ void division()
         }
         
             // -/-,S   10->-1
-        else if (s->state == 10 && pointer->data == ' ')
+        else if (s->state == 10 && pointer->data == '-')
         {                            
             waitFor(1);
             clrscr();
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             s = s->next;
 
         }
     }
-    
+    oneDoubleLinkekdList(tape);
     tape = dropLinkedList(tape);
 }

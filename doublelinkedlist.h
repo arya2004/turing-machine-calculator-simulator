@@ -35,17 +35,7 @@ DoubleLinkedList newDoubleLinkedList(DoubleLinkedList doublelinkedlist, char dat
     
 }
 
-int sizeDoubleLinkedList(DoubleLinkedList doublelinkedlist){
-    return doublelinkedlist.size;
-}
 
-char headDoubleLinkedList(DoubleLinkedList doublelinkedlist){
-    return doublelinkedlist.head->data;
-}
-
-char tailDoubleLinkedList(DoubleLinkedList doublelinkedlist){
-    return doublelinkedlist.tail->data;
-}
 
 DoubleLinkedList insertEndDoubleLinkedList(DoubleLinkedList doublelinkedlist, char data){
     doublelinkedlist.tail->next = (Node*) malloc(sizeof(Node));
@@ -160,6 +150,23 @@ void zeroDoubleLinkekdList(DoubleLinkedList doublelinkedlist){
     for (int i = 0; i < doublelinkedlist.size; i++)
     {
         if (temp->data == '0')
+        {
+            pp = pp+ 1;
+        }
+        
+        
+        temp = temp->next;
+    }
+   printf("\n%i", pp);
+}
+
+void oneDoubleLinkekdList(DoubleLinkedList doublelinkedlist){
+    Node* temp = doublelinkedlist.head;
+        printf("\n");
+        int pp = 0;
+    for (int i = 0; i < doublelinkedlist.size; i++)
+    {
+        if (temp->data == '1')
         {
             pp = pp+ 1;
         }

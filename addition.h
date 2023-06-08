@@ -20,10 +20,10 @@ void waitFor (unsigned int secs) {
 DoubleLinkedList createTapeAdd(char c[])
 {   
     int l = 20;
-    DoubleLinkedList d = newDoubleLinkedList(d,' ');
+    DoubleLinkedList d = newDoubleLinkedList(d,'-');
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
 for (int i = 0; c[i] != '\0'; i++)
@@ -32,7 +32,7 @@ for (int i = 0; c[i] != '\0'; i++)
 }
     for (int ii = 0; ii < 20; ii++)
 {
-    d = insertEndDoubleLinkedList(d, ' ');
+    d = insertEndDoubleLinkedList(d, '-');
 }
 
     return d;
@@ -45,7 +45,7 @@ typedef struct stateadd{
 }StateAdd;
 
 
-void addition()
+void addition(char a[])
 {
     StateAdd*add = (StateAdd*)malloc(sizeof(StateAdd));
     StateAdd* zero = add;
@@ -84,14 +84,14 @@ void addition()
 
 //
 
-    char a[] = "11111+111";
+
     DoubleLinkedList tape = createTapeAdd(a);
     Node* pointer = tape.head;
     StateAdd* s = add;
     Node* ptr = tape.head;
         printf("\n");
 
-    while (pointer->next->data== ' ' )
+    while (pointer->next->data== '-' )
     {
         pointer = pointer->next;
     }
@@ -100,11 +100,11 @@ void addition()
     {
         
         // -/-,R   0->1
-        if (s->state == 0 && pointer->data == ' ')
+        if (s->state == 0 && pointer->data == '-')
         {                      
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             s = s->next;
             pointer = pointer->next;
         }
@@ -145,11 +145,11 @@ void addition()
         } 
 
         // -/-,L   2->3
-        else if (s->state == 2 && pointer->data == ' ')
+        else if (s->state == 2 && pointer->data == '-')
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
 
             s = s->next;
             pointer = pointer->previous;
@@ -161,7 +161,7 @@ void addition()
         {                            
             waitFor(1);
             displayDoubleLinkekdList(tape, pointer);
-            pointer->data = ' ';
+            pointer->data = '-';
             waitFor(1);
             displayDoubleLinkekdList1(tape, pointer);
             s = s->next;
@@ -169,6 +169,7 @@ void addition()
         } 
 
     }
+    oneDoubleLinkekdList(tape);
     tape = dropLinkedList(tape);
     
 }
