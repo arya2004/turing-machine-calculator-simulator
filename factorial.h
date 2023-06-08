@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -12,16 +11,18 @@
 
 #define clrscr() printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
-    unsigned int retTime = time(0);// + secs;   // Get finishing time.
-    while (time(0) < retTime);               // Loop until it arrives.
-}
+  
+    unsigned int retTime = time(0);// + secs; 
+    while (time(0) < retTime);   
+     clrscr() ; 
+}     
 DoubleLinkedList createTapeFac(char c[])
 {   
     int l = 20;
-    DoubleLinkedList d = newDoubleLinkedList(d,'-');
+    DoubleLinkedList d = newDoubleLinkedList(d,' ');
     for (int ii = 0; ii < 10; ii++)
 {
-    d = insertEndDoubleLinkedList(d, '-');
+    d = insertEndDoubleLinkedList(d, ' ');
 }
 
 for (int i = 0; c[i] != '\0'; i++)
@@ -30,7 +31,7 @@ for (int i = 0; c[i] != '\0'; i++)
 }
     for (int ii = 0; ii < 500; ii++)
 {
-    d = insertEndDoubleLinkedList(d, '-');
+    d = insertEndDoubleLinkedList(d, ' ');
 }
 
     return d;
@@ -205,14 +206,14 @@ void factorial()
     
 //
 
-    char a[] = "00000";
+    char a[] = "000";
     DoubleLinkedList tape = createTapeFac(a);
     Node* pointer = tape.head;
     StateFac* s = fac;
     Node* ptr = tape.head;
         printf("\n");
 
-    while (pointer->data== '-' )
+    while (pointer->data== ' ' )
     {
         pointer = pointer->next;
     }
@@ -237,7 +238,7 @@ void factorial()
         }
 
         // -/1,S   0->1
-       else if (s->state == 0 && pointer->data == '-')
+       else if (s->state == 0 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
@@ -280,11 +281,11 @@ void factorial()
         } 
 
                 // -/-,R   1->2
-       else if (s->state == 1 && pointer->data == '-')
+       else if (s->state == 1 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
             // waitFor(1);
   // displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
@@ -336,7 +337,7 @@ void factorial()
         } 
 
             // -/0,S   3->4
-       else if (s->state == 3 && pointer->data == '-')
+       else if (s->state == 3 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
@@ -416,7 +417,7 @@ printf("\n%i", s->state);
         } 
 
             // -/1,L   5->7
-       else if (s->state == 5 && pointer->data == '-')
+       else if (s->state == 5 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
@@ -472,11 +473,11 @@ printf("\n%i", s->state);
         }
 
         // -/-,R   7->8
-       else if (s->state == 7 && pointer->data == '-')
+       else if (s->state == 7 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              //waitFor(1);
    //displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
@@ -490,7 +491,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
@@ -581,7 +582,7 @@ printf("\n%i", s->state);
         }
 
                 // -/0,S   12->13
-       else if (s->state == 12 && pointer->data == '-')
+       else if (s->state == 12 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
@@ -775,11 +776,11 @@ printf("\n%i", s->state);
         }   
 
            //-/-,r   6->16
-       else if (s->state == 6 && pointer->data == '-')
+       else if (s->state == 6 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
            //  waitFor(1);
    ///displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
@@ -791,7 +792,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
    displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
@@ -934,7 +935,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
@@ -946,7 +947,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
@@ -958,7 +959,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
@@ -1017,7 +1018,7 @@ printf("\n%i", s->state);
         } 
 
           // -/1,l   22->23
-       else if (s->state == 22 && pointer->data == '-')
+       else if (s->state == 22 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
@@ -1067,11 +1068,11 @@ printf("\n%i", s->state);
             printf("\n%i", s->state);
         } 
           // -/-,r   23->9
-       else if (s->state == 23 && pointer->data == '-')
+       else if (s->state == 23 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
@@ -1084,7 +1085,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
@@ -1097,7 +1098,7 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
              waitFor(1);
   displayDoubleLinkekdList1(tape, pointer);
             s = s->first;
@@ -1118,11 +1119,11 @@ printf("\n%i", s->state);
             printf("\n%i", s->state);
         } 
           // -/-,s   25->halt
-       else if (s->state == 25 && pointer->data == '-')
+       else if (s->state == 25 && pointer->data == ' ')
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
+            pointer->data = ' ';
           //   waitFor(1);
   //displayDoubleLinkekdList1(tape, pointer);
             s = s->second;
@@ -1135,8 +1136,8 @@ printf("\n%i", s->state);
         {                            waitFor(1);
         clrscr();
     displayDoubleLinkekdList(tape, pointer);
-            pointer->data = '-';
-            waitFor(1);
+            pointer->data = ' ';
+            waitFor(1);clrscr();
   displayDoubleLinkekdList1(tape, pointer);
             s = s->third;
             //pointer = pointer->next;  
@@ -1146,6 +1147,8 @@ printf("\n%i", s->state);
     }
     
     zeroDoubleLinkekdList(tape);
-    
+    tape = dropLinkedList(tape);
 
 }
+
+

@@ -19,6 +19,7 @@ int main()
    // division();
     //multiplication();
    factorial();
-  /// addition();
+   //addition();
+  //subtraction();
     return 0;
 }
