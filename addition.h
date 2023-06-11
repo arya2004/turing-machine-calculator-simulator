@@ -9,6 +9,7 @@
 #include <time.h>
 #include "doublelinkedlist.h"
 
+
 #define clrscr() //printf("\e[1;1H\e[2J")
 void waitFor (unsigned int secs) {
   
