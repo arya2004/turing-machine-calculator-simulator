@@ -1,4 +1,3 @@
-# Turing_Machines
 # Turing Machine Calculator Simulation
 
 This repository contains a collection of header files for simulating a basic calculator using a Turing machine. The calculator supports addition, subtraction, multiplication, division, and factorial operations. The simulation is based on the principles and theory described in the paper [Construction of Basic Calculator through Turing Machine](https://www.ijetajournal.org/volume-2/issue-6/IJETA-V2I6P1.pdf).
