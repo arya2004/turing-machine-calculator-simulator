@@ -24,7 +24,7 @@ To use the Turing machine calculator simulation, follow these steps:
 
 1. Clone the repository to your local machine.
    ```shell
-   git clone https://github.com/arya2004/Calculator.git
+   git clone https://github.com/arya2004/turing-machine-calculator-simulator.git
    ```
 2. Copy the required header files from the repository to your project directory.
 3. Include the desired header file(s) in your C program.
