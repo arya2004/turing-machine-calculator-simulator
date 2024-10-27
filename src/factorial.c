@@ -44,168 +44,62 @@ typedef struct state{
     struct state* third;
 }StateFac;
 
+StateFac *createStateFac(int state) {
+    StateFac *new_state = (StateFac *)malloc(sizeof(StateFac));
+    if (new_state == NULL) {
+        perror("Memory allocation failed");
+        exit(1);
+    }
 
+    new_state->state = state;
+    new_state->first = NULL;
+    new_state->second = NULL;
+    new_state->third = NULL;
+
+    return new_state;
+}
+void assign(StateFac *StateFacs, int index, int first, int second, int third) {
+    StateFacs[index]->first = first != -1 ? StateFacs[first] : NULL;
+    StateFacs[index]->second = second != -1 ? StateFacs[second] : NULL;
+    StateFacs[index]->third = third != -1 ? StateFacs[third] : NULL;
+}
 void factorial(char a[])
 {
+    StateFac *StateFacs[26];
+
+    for (int i = 0; i < 26; i++) {
+        StateFacs[i] = createStateFac(i);
+    }
+
     StateFac* fac = (StateFac*)malloc(sizeof(StateFac));
     StateFac* zero = fac;
     zero->state = 0;
-
-    StateFac* one = (StateFac*)malloc(sizeof(StateFac));
-    one->first = NULL;
-    one->state = 1;
-
-    StateFac* two = (StateFac*)malloc(sizeof(StateFac));
-    two->first = NULL;
-    two->state = 2;
-
-    StateFac* three = (StateFac*)malloc(sizeof(StateFac));
-    three->first = NULL;
-    three->state = 3;
-
-    StateFac* four = (StateFac*)malloc(sizeof(StateFac));
-    four->first = NULL;
-    four->state = 4;
-
-    StateFac* five = (StateFac*)malloc(sizeof(StateFac));
-    five->first = NULL;
-    five->state = 5;
-
-    StateFac* six = (StateFac*)malloc(sizeof(StateFac));
-    six->first = NULL;
-    six->state = 6;
-
-    StateFac*seven = (StateFac*)malloc(sizeof(StateFac));
-    seven->first = NULL;
-    seven->state = 7;
-
-    StateFac* eight = (StateFac*)malloc(sizeof(StateFac));
-    eight->first = NULL;
-    eight->state = 8;
-
-    StateFac* nine = (StateFac*)malloc(sizeof(StateFac));
-    nine->first = NULL;
-    nine->state = 9;
-
-    StateFac* ten = (StateFac*)malloc(sizeof(StateFac));
-    ten->first = NULL;
-    ten->state = 10;
-
-    StateFac* eleven = (StateFac*)malloc(sizeof(StateFac));
-    eleven->first = NULL;
-    eleven->state = 11;
-
-    StateFac* twelve = (StateFac*)malloc(sizeof(StateFac));
-    twelve->first = NULL;
-    twelve->state = 12;
-
-    StateFac* thirteen = (StateFac*)malloc(sizeof(StateFac));
-    thirteen->first = NULL;
-    thirteen->state = 13;
-
-    StateFac* forteen = (StateFac*)malloc(sizeof(StateFac));
-    forteen->first = NULL;
-    forteen->state = 14;
-
-    StateFac* fifteen = (StateFac*)malloc(sizeof(StateFac));
-    fifteen->first = NULL;
-    fifteen->state = 15;
-
-    StateFac* sixteen = (StateFac*)malloc(sizeof(StateFac));
-    sixteen->first = NULL;
-    sixteen->state = 16;
-
-    StateFac* seventeen = (StateFac*)malloc(sizeof(StateFac));
-    seventeen->first = NULL;
-    seventeen->state = 17;
-
-    StateFac* eighteen = (StateFac*)malloc(sizeof(StateFac));
-    eighteen->first = NULL;
-    eighteen->state = 18;
-
-    StateFac* nineteen = (StateFac*)malloc(sizeof(StateFac));
-    nineteen->first = NULL;
-    nineteen->state = 19;
-
-    StateFac* twenty = (StateFac*)malloc(sizeof(StateFac));
-    twenty->first = NULL;
-    twenty->state = 20;
-
-    StateFac* twentyone = (StateFac*)malloc(sizeof(StateFac));
-    twentyone->first = NULL;
-    twentyone->state = 21;
-
-    StateFac* twentytwo = (StateFac*)malloc(sizeof(StateFac));
-    twentytwo->first = NULL;
-    twentytwo->state = 22;
-
-
-    StateFac* twentythree = (StateFac*)malloc(sizeof(StateFac));
-    twentythree->first = NULL;
-    twentythree->state = 23;
-
-    StateFac* twentfour = (StateFac*)malloc(sizeof(StateFac));
-    twentfour->first = NULL;
-    twentfour->state = 24;
-
-    StateFac* twentfive = (StateFac*)malloc(sizeof(StateFac));
-    twentfive->first = NULL;
-    twentfive->state = 25;
-
-
-//connecting them
-    zero->first = zero;
-    zero->second = one;
-    one->second = two;
-    one->first = one;
-    two->first = three;
-    two->second = five;
-    three->second = four;
-    three->first = three;
-    four->first = four;
-    four->second = two;
-    five->second = seven;
-    five->first = five;
-    six->first = six;
-    six->second = sixteen;
-    seven->first = seven;
-    seven->second = eight;
-    eight->first = nine;
-    //ei->second = nine;
-    nine->first = six;
-    nine->second = ten;
-    ten->first = ten;
-    ten->second = eleven;
-    eleven->first= twelve;
-    eleven->second = forteen;
-    twelve->first = twelve;
-    twelve->second = thirteen;
-    thirteen->first = thirteen;
-    thirteen->second = eleven;
-    forteen->first = forteen;
-    forteen->second = fifteen;
-    fifteen->first = fifteen;
-    fifteen->second = nine;
-    sixteen->first = seventeen;
-    sixteen->second = twentfive;
-    seventeen->first = eighteen;
-    seventeen->second = nineteen;
-    eighteen->first = eighteen;
-    eighteen->second = twentytwo;
-    eighteen->third = twentfour;
-    nineteen->first = nineteen;
-    nineteen->second = twenty;
-    twenty->first = twenty;
-    twenty->second = twentyone;
-    twentyone->first = twentyone;
-    twentyone->second = six;
-    twentytwo->first= twentytwo;
-    twentytwo->second = twentythree;
-    twentythree->first = twentythree;
-    twentythree->second = nine;
-    twentfour->first = NULL;
-//
-
+    assign(StateFacs, 0, 0, 1, -1);
+    assign(StateFacs, 1, 1, 2, -1);
+    assign(StateFacs, 2, 3, 5, -1);
+    assign(StateFacs, 3, 3, 4, -1);
+    assign(StateFacs, 4, 4, 2, -1);
+    assign(StateFacs, 5, 5, 7, -1);
+    assign(StateFacs, 6, 6, 16, -1);
+    assign(StateFacs, 7, 7, 8, -1);
+    assign(StateFacs, 8, 9, -1, -1);
+    assign(StateFacs, 9, 6, 10, -1);
+    assign(StateFacs, 10, 10, 11, -1);
+    assign(StateFacs, 11, 12, 14, -1);
+    assign(StateFacs, 12, 12, 13, -1);
+    assign(StateFacs, 13, 13, 11, -1);
+    assign(StateFacs, 14, 14, 15, -1);
+    assign(StateFacs, 15, 15, 9, -1);
+    assign(StateFacs, 16, 17, 25, -1);
+    assign(StateFacs, 17, 18, 19, -1);
+    assign(StateFacs, 18, 18, 22, 24);
+    assign(StateFacs, 19, 19, 20, -1);
+    assign(StateFacs, 20, 20, 21, -1);
+    assign(StateFacs, 21, 21, 6, -1);
+    assign(StateFacs, 22, 22, 23, -1);
+    assign(StateFacs, 23, 23, 9, -1);
+    assign(StateFacs, 24, -1, -1, -1);
+    assign(StateFacs, 25, 25, -1, -1);
 
     DoubleLinkedList tape = createTapeFac(a);
     Node* pointer = tape.head;
@@ -994,7 +888,11 @@ void factorial(char a[])
     
     zeroDoubleLinkekdList(tape);
     tape = dropLinkedList(tape);
-
+    
+    free(fac);
+    for (int i = 0; i < 26; i++) {
+        free(StateFacs[i]);
+    }
 }
 
 
