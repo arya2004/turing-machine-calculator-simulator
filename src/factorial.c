@@ -889,6 +889,7 @@ void factorial(char a[])
     zeroDoubleLinkekdList(tape);
     tape = dropLinkedList(tape);
     
+    free(fac);
     for (int i = 0; i < 26; i++) {
         free(StateFacs[i]);
     }
