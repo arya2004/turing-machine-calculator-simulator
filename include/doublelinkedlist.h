@@ -132,7 +132,7 @@ void displayDoubleLinkekdList1(DoubleLinkedList doublelinkedlist, Node* pp){
         if (temp == pp)
         {
             printf("\033[0;32m%c\033[0m", temp->data);
-            i++; //Set the text to the color red
+            i++; //Set the text to the color green
             temp = temp->next;
         }
         
