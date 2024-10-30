@@ -1,15 +1,14 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<stdbool.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <time.h>
 #include "../include/doublelinkedlist.h"
 
 #define clrscr() //printf("\e[1;1H\e[2J")
 
 typedef struct stateadd {
     int state;
-    struct stateadd* self;
     struct stateadd* next;
 } StateAdd;
 
@@ -20,25 +19,16 @@ void waitFor(unsigned int secs) {
 }
 
 DoubleLinkedList createTapeAdd(char c[]) {   
-    int l = 20;
-    DoubleLinkedList d = newDoubleLinkedList(d, '-');
-    for (int ii = 0; ii < 20; ii++)
-        d = insertEndDoubleLinkedList(d, '-');
-
+    DoubleLinkedList d = newDoubleLinkedList('-', 20);
     for (int i = 0; c[i] != '\0'; i++)
         d = insertEndDoubleLinkedList(d, c[i]);
-
-    for (int ii = 0; ii < 20; ii++)
-        d = insertEndDoubleLinkedList(d, '-');
-
     return d;
 }
 
-StateAdd* createState(int state, StateAdd* next, StateAdd* self) {
+StateAdd* createState(int state, StateAdd* next) {
     StateAdd* newState = (StateAdd*)malloc(sizeof(StateAdd));
     newState->state = state;
     newState->next = next;
-    newState->self = self;
     return newState;
 }
 
@@ -51,12 +41,11 @@ void freeStates(StateAdd* head) {
 }
 
 void addition(char a[]) {
-    // Creating and linking states
-    StateAdd* zero = createState(0, NULL, NULL);
-    StateAdd* one = createState(1, NULL, one);
-    StateAdd* two = createState(2, NULL, two);
-    StateAdd* three = createState(3, NULL, three);
-    StateAdd* halt = createState(-1, NULL, NULL);
+    StateAdd* zero = createState(0, NULL);
+    StateAdd* one = createState(1, NULL);
+    StateAdd* two = createState(2, NULL);
+    StateAdd* three = createState(3, NULL);
+    StateAdd* halt = createState(-1, NULL);
 
     zero->next = one;
     one->next = two;
@@ -65,17 +54,17 @@ void addition(char a[]) {
 
     DoubleLinkedList tape = createTapeAdd(a);
     Node* pointer = tape.head;
-    StateAdd* s = zero;
 
     while (pointer->next->data == '-') {
         pointer = pointer->next;
     }
 
+    StateAdd* s = zero;
     while (s->state != -1) {
         switch (s->state) {
             case 0:
                 if (pointer->data == '-') {
-                    displayDoubleLinkekdList(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     s = s->next;
                     pointer = pointer->next;
                 }
@@ -83,12 +72,12 @@ void addition(char a[]) {
 
             case 1:
                 if (pointer->data == '1') {
-                    displayDoubleLinkekdList(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     pointer = pointer->next;
                 } else if (pointer->data == '+') {
-                    displayDoubleLinkekdList(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     pointer->data = '1';
-                    displayDoubleLinkekdList1(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     s = s->next;
                     pointer = pointer->next;
                 }
@@ -96,10 +85,10 @@ void addition(char a[]) {
 
             case 2:
                 if (pointer->data == '1') {
-                    displayDoubleLinkekdList(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     pointer = pointer->next;
                 } else if (pointer->data == '-') {
-                    displayDoubleLinkekdList(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     s = s->next;
                     pointer = pointer->previous;
                 }
@@ -107,9 +96,9 @@ void addition(char a[]) {
 
             case 3:
                 if (pointer->data == '1') {
-                    displayDoubleLinkekdList(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     pointer->data = '-';
-                    displayDoubleLinkekdList1(tape, pointer);
+                    displayDoubleLinkedList(tape, pointer);
                     s = s->next;
                 }
                 break;
@@ -117,7 +106,7 @@ void addition(char a[]) {
         waitFor(1);
     }
 
-    oneDoubleLinkekdList(tape);
+    oneDoubleLinkedList(tape);
     tape = dropLinkedList(tape);
 
     freeStates(zero);
